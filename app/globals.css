@@ -46,10 +46,37 @@
 h1 {
   font-size: 80px;
   text-align: center;
+  font-weight: bolder;
 }
 
 h2 {
   font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 35px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+h4 {
+  font-size: 35px;
+  text-align: left;
+  line-height: 2;
+}
+
+h5 {
+  font-size: 25px;
+  text-align: left;
+}
+
+h6 {
+  font-size: 35px;
+  text-align: left;
+  line-height: 2;
+  color: red;
 }
 
 :root {

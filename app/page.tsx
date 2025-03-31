@@ -1,13 +1,14 @@
-import { Button } from "@/components/ui/button";
+"use client";
+
+import type React from "react"
 import Image from "next/image";
 
+
 export default function Home() {
+
   return (
-    <div className="place-content-center">
-      <h1 className="row-start-0 text-sm gap-[24px] tc-[#00ff00]">
-          Page 1
-      </h1>
-      <main className="row-start-2 justify-items-center">
+    <div className="grid grid-rows-7 grid-cols-5 gap-4 grid-rows-[repeat(2,min-content)_1fr] mt-6">
+      <div className="col-span-1 col-start-1 col-end-2 row-span-1 row-start-1 row-end-2 place-content-center justify-center justify-self-center">
         <Image
           //className="blue"
           src="/britishFlag.png"
@@ -16,51 +17,171 @@ export default function Home() {
           height={80}
           priority
         />
+      </div>
+      <div className="col-span-3 col-start-2 col-end-5 row-span-1 row-start-1">
+          <h1>STRATA</h1>
+          <h2>DASHBOARD</h2>
+      </div>
+      <div className="col-span-1 col-start-5 row-span-1 row-start-1 row-end-2 place-items-center items-baseline place-content-center justify-center justify-self-center">
+        <a
+          className="border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-[155px] px-4 sm:px-5 w-full sm:w-auto md:w-[155px]"
+          href="/.."
+        >
+        <Image
+              src="/home.png"
+              alt="Home icon"
+              width={150}
+              height={150}
+        /> 
+        </a>
+      </div>
+      
+      <div className="row-span-7 row-start-2 col-span-1 col-start-1 col-end-2">
         
-        <ol className="list-inside list-decimal text-lg text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            We are testing {" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              mmmmmmmmmmmmmmmmmmmm
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <div className="grid grid-cols-1 grid-rows-9">
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center bg-[#ffffff] text-foreground gap-2 hover:bg-[#ff0000] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="/PageThree"
+            className="row-span-1 row-start-1 row-end-2 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
+            href="/NoticePage"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            3rd Page
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#00ffff] hover:bg-[#00ffff] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="/PageTwo"
-          >
-            2nd page
+            <h4>Notices</h4>
           </a>
           <a
             // test button
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#00ff00] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            className="row-span-1 row-start-2 row-end-3 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
+            href="/.."
+          >         
+            <h4>Finances</h4>
+          </a>
+          <a
+            // test button
+            className="row-span-1 row-start-3 row-end-4 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-[windowWidth/5]"
+            href="/.."
+          >         
+            <h4>Information</h4>
+          </a>
+          <a
+            // test button
+            className="row-span-1 row-start-4 row-end-5 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
+            href="/.."
+          >         
+            <h4>Committee</h4>
+          </a>
+          <a
+            // test button
+            className="row-span-1 row-start-7 row-end-8 space-x-9 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
+            href="/AccountPage"
           >
-            Go to Gmail
-          </a> 
+            <Image
+              src="/user.png"
+              alt="User profile picture"
+              width={100}
+              height={100}
+            />    
+            <h4>{process.env.NEXT_PUBLIC_USERNAME}</h4>
+          </a>
         </div>
-      </main>
+      </div>
+
+
+      <div className="row-span-7 row-start-2 col-span-2 col-start-2 col-end-4 place-items-start space-y-5">
+        <h2>NOTICES</h2>
+        <div className="grid grid-cols-1 grid-rows-4 space-y-5">
+          <a
+            className="row-span-1 row-start-1 row-end-2 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[38vw]"
+            href="/.."
+          >
+            <h4 className="block">Notice of Rent Increase</h4>
+            <span className="block">
+              We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800.
+            </span>
+            <span className="block">
+              This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
+            </span>
+            <span className="block">
+            If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
+            </span>
+            Sincerely,
+            Nick
+          </a>
+          <a
+            className="row-span-1 row-start-2 row-end-3 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[38vw]"
+              href="/.."
+          >         
+            <h4 className="block">Notice of Property Renovation</h4>
+            <span className="block">
+              We would like to inform you that scheduled maintenance will take place on 1/4/2025 between 1am and 5am. The maintenance will involve plumbing repairs, electrical upgrades and pest control.
+            </span>
+            <span className="block">
+              To ensure the process runs smoothly, please ensure that you are asleep. We apologize for any inconvenience and appreciate your cooperation.
+            </span>
+            <span className="block">
+            If you have any questions or or require further clarification, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
+            </span>
+            Sincerely,
+            Nick
+          </a>
+          <a
+            className="row-span-1 row-start-3 row-end-4 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[38vw]"
+            href="/.."
+          >         
+            <h4 className="block">Notice of Rent Increase</h4>
+            <span className="block">
+              We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800.
+            </span>
+            <span className="block">
+              This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
+            </span>
+            <span className="block">
+            If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
+            </span>
+            Sincerely,
+            Nick
+          </a>
+        </div>
+      </div>
+
+      <div className="row-span-7 row-start-2 col-span-2 col-start-4 place-items-start space-y-5">
+        <h2>FINANCES</h2>
+        <h3>Upcoming</h3>
+        <a
+          className="row-span-1 row-start-1 row-end-2 space-x-175 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[38vw]"
+        >
+          <h4>$1,080</h4>
+          <h4>Due 1/4/2025</h4>
+        </a>
+        <a
+          className="row-span-1 row-start-2 row-end-3 space-x-175 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[38vw]"
+        >
+          <h4>$1,080</h4>
+          <h4>Due 15/4/2025</h4>
+        </a>
+        <a
+          className="row-span-1 row-start-3 row-end-4 space-x-175 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[38vw]"
+        >
+          <h4>$1,080</h4>
+          <h4>Due 1/5/2025</h4>
+        </a>
+        <h3>Past Payments</h3>
+        <a
+          className="row-span-1 row-start-4 row-end-5 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[38vw]"
+          href="/.."
+        >
+          <h6>$1,080 Due 1/2/2025</h6>
+        </a>
+        <a
+          className="row-span-1 row-start-5 row-end-6 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[38vw]"
+          href="/.."
+        >
+          <h6>$1,080 Due 14/2/2025</h6>
+        </a>
+        <a
+          className="row-span-1 row-start-6 row-end-7 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[38vw]"
+          href="/.."
+        >
+          <h6>$1,080 Due 1/3/2025</h6>
+        </a>
+      </div>
     </div>
   );
 }
+
