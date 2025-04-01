@@ -2,17 +2,19 @@ import { Shield } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-// Correct type definition for Next.js App Router page props
-export default function BlockedPage({
-  searchParams,
-}: {
-  params?: { slug?: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+// Use the exact type that Next.js expects
+type Props = {
+  params: Record<string, string>;
+  searchParams: Record<string, string | string[] | undefined>;
+};
+
+export default function BlockedPage(props: Props) {
+  const { searchParams } = props;
+  
   // Get the original URL and location info from query parameters
-  const from = searchParams?.from || '/';
-  const country = searchParams?.country || 'Unknown';
-  const region = searchParams?.region || 'Unknown';
+  const from = String(searchParams.from || '/');
+  const country = String(searchParams.country || 'Unknown');
+  const region = String(searchParams.region || 'Unknown');
   
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
