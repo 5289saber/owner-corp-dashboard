@@ -1,55 +1,14 @@
 {
-    "version": 2,
-    "buildCommand": "next build",
-    "devCommand": "next dev",
-    "installCommand": "npm install",
-    "framework": "nextjs",
-
-    "rewrites": [
-      { 
-        "source": "/api/v1/:path*", 
-        "destination": "/api/:path*" 
-      },
-      {
-        "source": "/proxy/:match*",
-        "destination": "https://external-api.com/:match*"
-      }
-    ],
-
-    "env": {
-      "CUSTOM_VARIABLE": "production-value",
-      "API_URL": "https://api.example.com"
-    },
-
-    "build": {
-      "env": {
-        "TEST_ONE" : "testone",
-        "NEXT_PUBLIC_TEST_TWO" : "testtwo",
-        "NEXT_PUBLIC_USERNAME" : "5289saber",
-        "API_KEY" : "keylink"
-      }
-    },
-    
-    "functions": {
-      "app/api/**/*": {
-        "runtime": "edge",
-        "memory": 1024,
-        "maxDuration": 10
-      },
-      "app/api/heavy-task/**/*": {
-        "memory": 3008,
-        "maxDuration": 60
-      }
-    },
-
-    "crons": [
-      {
-        "path": "/api/cron/daily-task",
-        "schedule": "0 0 * * *"
-      },
-      {
-        "path": "/api/cron/weekly-report",
-        "schedule": "0 9 * * 1"
-      }
-    ]
-  }
+  "version": 2,
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "crons": [
+    {
+      "path": "/api/daily-task",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}
