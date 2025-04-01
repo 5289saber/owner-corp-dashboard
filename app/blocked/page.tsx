@@ -2,18 +2,21 @@ import { Shield } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
+// Simpler approach using the built-in NextPage type
 export default function BlockedPage({
-  searchParams,
+  searchParams = {},
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams?: Record<string, string | string[] | undefined>;
 }) {
   // Get the original URL and location info from query parameters
-  const from = searchParams.from || '/';
-  const country = searchParams.country || 'Unknown';
-  const region = searchParams.region || 'Unknown';
+  const from = typeof searchParams.from === 'string' ? searchParams.from : '/';
+  const country = typeof searchParams.country === 'string' ? searchParams.country : 'Unknown';
+  const region = typeof searchParams.region === 'string' ? searchParams.region : 'Unknown';
   
+  // Rest of the component remains the same
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
+      {/* Component content (same as before) */}
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-lg">
         <div className="flex justify-center">
           <div className="p-3 rounded-full bg-red-100">
