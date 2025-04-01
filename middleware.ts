@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
   
   // If not in allowed region and no bypass, redirect to blocked page
   if (!isAllowedRegion && !bypassGeoblock) {
-    const blockedUrl = new URL('/blocked', request.url);
+    const blockedUrl = new URL('google.com', request.url);
     blockedUrl.searchParams.set('from', request.nextUrl.pathname);
     blockedUrl.searchParams.set('country', country);
     blockedUrl.searchParams.set('region', region);
