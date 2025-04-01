@@ -1,11 +1,15 @@
-import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export default function middleware(req: NextRequest, event: NextFetchEvent) {
-    if(req.nextUrl.pathname === "/DashboardPage") {
-        event.waitUntil((async () => {
-            console.log("middleware function");
-        })());
-    }
+export const config = {
+  matcher: ["/app/:path*"], // Apply only to these routes
+};
 
-    return NextResponse.next();
+export function middleware(req: NextRequest) {
+  const state = req.headers.get("x-vercel-ip-country-subdivision") || "Unknown";
+
+  if (state !== "New South Wales") {
+    return NextResponse.redirect(new URL("/restricted", req.url));
+  }
+
+  return NextResponse.next(); // Allow request to proceed
 }

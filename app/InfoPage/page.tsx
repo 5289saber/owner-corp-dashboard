@@ -2,6 +2,7 @@
 
 import type React from "react"
 import Image from "next/image";
+import { DownloadButton } from "@/components/ui/downloadButton";
 
 
 export default function NoticePage() {
@@ -85,6 +86,14 @@ export default function NoticePage() {
 
 
       <div className="row-span-7 row-start-2 col-span-4 col-start-2 place-items-start space-y-5">
+
+        <h1>Estate Insurance Policy</h1>
+        <DownloadButton
+          filePath="home-insurance-pds.pdf"
+          label="Download Insurance"
+        >
+        </DownloadButton>
+
         <h1>Rules & Regulations</h1>
 
         <h2>1. Noise & Conduct</h2>
