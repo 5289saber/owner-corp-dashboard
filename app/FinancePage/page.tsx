@@ -69,7 +69,7 @@ export default function NoticePage() {
           </a>
           <a
             // account button
-            className="row-span-1 row-start-7 row-end-8 space-x-9 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
+            className="row-span-1 row-start-5 row-end-6 space-x-9 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
             href="/AccountPage"
           >
             <Image
@@ -88,21 +88,21 @@ export default function NoticePage() {
         <h2>FINANCES</h2>
         <h3>Upcoming</h3>
         <a
-          className="row-span-1 row-start-1 row-end-2 space-x-145 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          className="row-span-1 row-start-1 row-end-2 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
         >
           <h4>$1,080</h4>
           <h4>Due 01/4/2025</h4>
           <h4>Reference: --</h4>
         </a>
         <a
-          className="row-span-1 row-start-2 row-end-3 space-x-145 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          className="row-span-1 row-start-2 row-end-3 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
         >
           <h4>$1,080</h4>
           <h4>Due 15/4/2025</h4>
           <h4>Reference: --</h4>
         </a>
         <a
-          className="row-span-1 row-start-3 row-end-4 space-x-145 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          className="row-span-1 row-start-3 row-end-4 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
         >
           <h4>$1,080</h4>
           <h4>Due 01/5/2025</h4>
@@ -110,21 +110,21 @@ export default function NoticePage() {
         </a>
         <h3>Past Payments</h3>
         <a
-          className="row-span-1 row-start-4 row-end-5 space-x-190 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          className="row-span-1 row-start-4 row-end-5 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
           href="/.."
         >
           <h6>$1,080 Due 01/2/2025</h6>
           <h4>Reference: P9CxuKAlqqhCcCBJ</h4>
         </a>
         <a
-          className="row-span-1 row-start-5 row-end-6 space-x-190 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          className="row-span-1 row-start-5 row-end-6 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
           href="/.."
         >
           <h6>$1,080 Due 14/2/2025</h6>
           <h4>Reference: T2WbSMr1Y7oSgfok</h4>
         </a>
         <a
-          className="row-span-1 row-start-6 row-end-7 space-x-190 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          className="row-span-1 row-start-6 row-end-7 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
           href="/.."
         >
           <h6>$1,080 Due 01/3/2025</h6>

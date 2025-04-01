@@ -37,7 +37,7 @@ export default function NoticePage() {
       </div>
       
       <div className="row-span-7 row-start-2 col-span-1 col-start-1 col-end-2">
-        
+                    
         <div className="grid grid-cols-1 grid-rows-9">
           <a
             // notices button
@@ -69,7 +69,7 @@ export default function NoticePage() {
           </a>
           <a
             // account button
-            className="row-span-1 row-start-7 row-end-8 space-x-9 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
+            className="row-span-1 row-start-5 row-end-6 space-x-9 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
             href="/AccountPage"
           >
             <Image
@@ -127,7 +127,7 @@ export default function NoticePage() {
               This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
             </h5>
             <h5>
-            If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
+              If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
             </h5>
             <h5>Sincerely,</h5>
             <h5>Nick</h5>
