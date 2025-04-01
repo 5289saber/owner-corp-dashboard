@@ -20,7 +20,7 @@ export default function NoticePage() {
       </div>
       <div className="col-span-3 col-start-2 col-end-5 row-span-1 row-start-1">
           <h1>STRATA</h1>
-          <h2>NOTICES</h2>
+          <h2>FINANCES</h2>
       </div>
       <div className="col-span-1 col-start-5 row-span-1 row-start-1 row-end-2 place-items-center items-baseline place-content-center justify-center justify-self-center">
         <a
@@ -85,54 +85,51 @@ export default function NoticePage() {
 
 
       <div className="row-span-7 row-start-2 col-span-4 col-start-2 place-items-start space-y-5">
-        <h2>NOTICES</h2>
-        <div className="grid grid-cols-1 grid-rows-4 space-y-5">
-          <a
-            className="row-span-1 row-start-1 row-end-2 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >
-            <h4>Notice of Rent Increase</h4>
-            <h4>   </h4>
-            <h5>
-              We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800.
-            </h5>
-            <h5>
-              This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
-            </h5>
-            <h5>
-            If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
-            </h5>
-            <h5>Sincerely,</h5>
-            <h5>Nick</h5>
-          </a>
-          <a
-            className="row-span-1 row-start-2 row-end-3 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >         
-            <h4>Notice of Property Renovation</h4>
-            <h4>   </h4>
-            <h5>
-              We would like to inform you that scheduled maintenance will take place on 1/4/2025 between 1am and 5am. The maintenance will involve plumbing repairs, electrical upgrades and pest control. To ensure the process runs smoothly, please ensure that you are asleep. We apologize for any inconvenience and appreciate your cooperation. If you have any questions or or require further clarification, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
-            </h5>
-            <h5>Sincerely,</h5>
-            <h5>Nick</h5>
-          </a>
-          <a
-            className="row-span-1 row-start-3 row-end-4 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >         
-            <h4>Notice of Rent Increase</h4>
-            <h4>   </h4>
-            <h5>
-              We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800.
-            </h5>
-            <h5>
-              This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
-            </h5>
-            <h5>
-            If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
-            </h5>
-            <h5>Sincerely,</h5>
-            <h5>Nick</h5>
-          </a>
-        </div>
+        <h2>FINANCES</h2>
+        <h3>Upcoming</h3>
+        <a
+          className="row-span-1 row-start-1 row-end-2 space-x-145 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+        >
+          <h4>$1,080</h4>
+          <h4>Due 01/4/2025</h4>
+          <h4>Reference: --</h4>
+        </a>
+        <a
+          className="row-span-1 row-start-2 row-end-3 space-x-145 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+        >
+          <h4>$1,080</h4>
+          <h4>Due 15/4/2025</h4>
+          <h4>Reference: --</h4>
+        </a>
+        <a
+          className="row-span-1 row-start-3 row-end-4 space-x-145 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+        >
+          <h4>$1,080</h4>
+          <h4>Due 01/5/2025</h4>
+          <h4>Reference: --</h4>
+        </a>
+        <h3>Past Payments</h3>
+        <a
+          className="row-span-1 row-start-4 row-end-5 space-x-190 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          href="/.."
+        >
+          <h6>$1,080 Due 01/2/2025</h6>
+          <h4>Reference: P9CxuKAlqqhCcCBJ</h4>
+        </a>
+        <a
+          className="row-span-1 row-start-5 row-end-6 space-x-190 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          href="/.."
+        >
+          <h6>$1,080 Due 14/2/2025</h6>
+          <h4>Reference: T2WbSMr1Y7oSgfok</h4>
+        </a>
+        <a
+          className="row-span-1 row-start-6 row-end-7 space-x-190 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[76vw]"
+          href="/.."
+        >
+          <h6>$1,080 Due 01/3/2025</h6>
+          <h4>Reference: LCxbv8uVNcipbb9A</h4>
+        </a>
       </div>
     </div>
   );

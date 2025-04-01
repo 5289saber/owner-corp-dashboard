@@ -40,34 +40,35 @@ export default function Home() {
         
         <div className="grid grid-cols-1 grid-rows-9">
           <a
+            // notices button
             className="row-span-1 row-start-1 row-end-2 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
             href="/NoticePage"
           >
             <h4>Notices</h4>
           </a>
           <a
-            // test button
+            // finances button
             className="row-span-1 row-start-2 row-end-3 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
-            href="/.."
+            href="/FinancePage"
           >         
             <h4>Finances</h4>
           </a>
           <a
-            // test button
+            // information button
             className="row-span-1 row-start-3 row-end-4 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-[windowWidth/5]"
-            href="/.."
+            href="/InfoPage"
           >         
             <h4>Information</h4>
           </a>
           <a
-            // test button
+            // committee button
             className="row-span-1 row-start-4 row-end-5 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
-            href="/.."
+            href="/CommitteePage"
           >         
             <h4>Committee</h4>
           </a>
           <a
-            // test button
+            // account button
             className="row-span-1 row-start-7 row-end-8 space-x-9 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
             href="/AccountPage"
           >
@@ -88,54 +89,45 @@ export default function Home() {
         <div className="grid grid-cols-1 grid-rows-4 space-y-5">
           <a
             className="row-span-1 row-start-1 row-end-2 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[38vw]"
-            href="/.."
+            href="/NoticePage"
           >
-            <h4 className="block">Notice of Rent Increase</h4>
-            <span className="block">
+            <h4>Notice of Rent Increase</h4>
+            <h4>   </h4>
+            <span>
               We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800.
             </span>
-            <span className="block">
+            <span>
               This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
             </span>
-            <span className="block">
+            <span>
             If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
             </span>
-            Sincerely,
-            Nick
+            <span>Sincerely,</span>
+            <span>Nick</span>
           </a>
           <a
             className="row-span-1 row-start-2 row-end-3 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[38vw]"
-              href="/.."
+              href="/NoticePage"
           >         
-            <h4 className="block">Notice of Property Renovation</h4>
-            <span className="block">
-              We would like to inform you that scheduled maintenance will take place on 1/4/2025 between 1am and 5am. The maintenance will involve plumbing repairs, electrical upgrades and pest control.
+            <h4>Notice of Property Renovation</h4>
+            <h4>   </h4>
+            <span>
+              We would like to inform you that scheduled maintenance will take place on 1/4/2025 between 1am and 5am. The maintenance will involve plumbing repairs, electrical upgrades and pest control. To ensure the process runs smoothly, please ensure that you are asleep. We apologize for any inconvenience and appreciate your cooperation. If you have any questions or or require further clarification, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
             </span>
-            <span className="block">
-              To ensure the process runs smoothly, please ensure that you are asleep. We apologize for any inconvenience and appreciate your cooperation.
-            </span>
-            <span className="block">
-            If you have any questions or or require further clarification, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
-            </span>
-            Sincerely,
-            Nick
+            <span>Sincerely,</span>
+            <span>Nick</span>
           </a>
           <a
             className="row-span-1 row-start-3 row-end-4 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[38vw]"
-            href="/.."
+            href="/NoticePage"
           >         
-            <h4 className="block">Notice of Rent Increase</h4>
-            <span className="block">
-              We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800.
+            <h4>Notice of Rent Increase</h4>
+            <h4>   </h4>
+            <span>
+              We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800. This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience. If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
             </span>
-            <span className="block">
-              This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
-            </span>
-            <span className="block">
-            If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
-            </span>
-            Sincerely,
-            Nick
+            <span>Sincerely,</span>
+            <span>Nick</span>
           </a>
         </div>
       </div>

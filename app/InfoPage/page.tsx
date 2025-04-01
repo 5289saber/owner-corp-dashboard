@@ -20,7 +20,7 @@ export default function NoticePage() {
       </div>
       <div className="col-span-3 col-start-2 col-end-5 row-span-1 row-start-1">
           <h1>STRATA</h1>
-          <h2>NOTICES</h2>
+          <h2>INFORMATION</h2>
       </div>
       <div className="col-span-1 col-start-5 row-span-1 row-start-1 row-end-2 place-items-center items-baseline place-content-center justify-center justify-self-center">
         <a
@@ -85,54 +85,57 @@ export default function NoticePage() {
 
 
       <div className="row-span-7 row-start-2 col-span-4 col-start-2 place-items-start space-y-5">
-        <h2>NOTICES</h2>
-        <div className="grid grid-cols-1 grid-rows-4 space-y-5">
-          <a
-            className="row-span-1 row-start-1 row-end-2 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >
-            <h4>Notice of Rent Increase</h4>
-            <h4>   </h4>
-            <h5>
-              We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800.
-            </h5>
-            <h5>
-              This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
-            </h5>
-            <h5>
-            If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
-            </h5>
-            <h5>Sincerely,</h5>
-            <h5>Nick</h5>
-          </a>
-          <a
-            className="row-span-1 row-start-2 row-end-3 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >         
-            <h4>Notice of Property Renovation</h4>
-            <h4>   </h4>
-            <h5>
-              We would like to inform you that scheduled maintenance will take place on 1/4/2025 between 1am and 5am. The maintenance will involve plumbing repairs, electrical upgrades and pest control. To ensure the process runs smoothly, please ensure that you are asleep. We apologize for any inconvenience and appreciate your cooperation. If you have any questions or or require further clarification, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
-            </h5>
-            <h5>Sincerely,</h5>
-            <h5>Nick</h5>
-          </a>
-          <a
-            className="row-span-1 row-start-3 row-end-4 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >         
-            <h4>Notice of Rent Increase</h4>
-            <h4>   </h4>
-            <h5>
-              We hope this letter finds you well. We are writing to inform of an upcoming rent increase for all units. Effective 1/4/2025, the monthly rent for your unit will increase from $540 to $800.
-            </h5>
-            <h5>
-              This adjustment is necessary due to rising maintenance costs and property expenses. We appreciate your tenancy and want to ensure you continue to have a comfortable living experience.
-            </h5>
-            <h5>
-            If you have any questions or wish to discuss the matter, please contact us at 0412 345 678. Thank you for your understanding and cooperation.
-            </h5>
-            <h5>Sincerely,</h5>
-            <h5>Nick</h5>
-          </a>
-        </div>
+        <h1>Rules & Regulations</h1>
+
+        <h2>1. Noise & Conduct</h2>
+        <h4>Quiet hours: 10:00 PM – 7:00 AM on weekdays, 11:00 PM – 8:00 AM on weekends.</h4>
+        <h4>No excessive noise from music, TVs, or gatherings that disturb other residents.</h4>
+        <h4>Parties must end by 11:00 PM, and guests should not loiter in common areas.</h4>
+
+        <h2>2. Pets</h2>
+        <h4>Only small pets (under 10 kg) are allowed, subject to prior approval from the Owners Corporation.</h4>
+        <h4>Pets must be kept on a leash in common areas.</h4>
+        <h4>Owners must clean up after their pets immediately.</h4>
+
+        <h2>3. Parking</h2>
+        <h4>Residents must park only in designated spaces.</h4>
+        <h4>Visitor parking is limited to a maximum of 24 hours.</h4>
+        <h4>No commercial vehicles, boats, or trailers are allowed in the parking lot.</h4>
+
+        <h2>4. Waste Disposal</h2>
+        <h4>Garbage must be placed in designated bins.</h4>
+        <h4>Recycling must be separated from general waste.</h4>
+        <h4>Bulky waste (furniture, appliances) must be arranged for special pickup.</h4>
+
+        <h2>5. Common Areas & Facilities</h2>
+        <h4>Gym and pool are open from 6:00 AM to 10:00 PM.</h4>
+        <h4>BBQ and function rooms require booking at least 48 hours in advance.</h4>
+        <h4>No smoking in common areas, including hallways, lobbies, and balconies.</h4>
+
+        <h2>6. Security & Safety</h2>
+        <h4>Residents must not let unknown persons enter the building.</h4>
+        <h4>Any security issues should be reported to building management immediately.</h4>
+        <h4>Fire exits must remain clear at all times.</h4>
+
+        <h1>Fees & Costs</h1>
+
+        <h2>1. Monthly Owners Corporation Fees</h2>
+        <h4>Standard Apartment: $200 per month</h4>
+        <h4>Penthouse or Large Units: $350 per month</h4>
+
+        <h2>2. Facility Booking Fees</h2>
+        <h4>Function Room: $50 per session (refundable deposit of $100 required)</h4>
+        <h4>BBQ Area: Free, but requires booking</h4>
+
+        <h2>3. Move-In & Move-Out Fees</h2>
+        <h4>Lift reservation deposit: $150 (refundable if no damages occur)</h4>
+        <h4>Moving fees: $50 for security coverage during moving hours</h4>
+
+        <h2>4. Penalties & Fines</h2>
+        <h4>Noise Violation: $100 per complaint after first warning</h4>
+        <h4>Parking Violation: $50 per incident</h4>
+        <h4>Unauthorized Pet: $200 fine and potential removal</h4>
+        <h4>Improper Waste Disposal: $50 per violation</h4>
       </div>
     </div>
   );

@@ -81,28 +81,28 @@ export default function AccountPage() {
             <div className="grid grid-cols-1 grid-rows-9">
               <a
                 className="row-span-1 row-start-1 row-end-2 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
-                href="/.."
+                href="/NoticePage"
               >
                 <h4>Notices</h4>
               </a>
               <a
                 // test button
                 className="row-span-1 row-start-2 row-end-3 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
-                href="/../PageTwo"
+                href="/FinancePage"
               >         
                 <h4>Finances</h4>
               </a>
               <a
                 // test button
                 className="row-span-1 row-start-3 row-end-4 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-[windowWidth/5]"
-                href="/../PageTwo"
+                href="/InfoPage"
               >         
                 <h4>Information</h4>
               </a>
               <a
                 // test button
                 className="row-span-1 row-start-4 row-end-5 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-40 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
-                href="/../PageTwo"
+                href="/CommitteePage"
               >         
                 <h4>Committee</h4>
               </a>
@@ -118,14 +118,13 @@ export default function AccountPage() {
     
     
           <div className="row-span-12 row-start-2 col-span-4 col-start-2 place-items-start space-y-5">
-            <h2>NOTICES</h2>
+            <h2>USER INFORMATION</h2>
               <div className="grid grid-cols-1 grid-rows-9">
 
                 <div className="row-span-1 row-start-1 row-end-2">
 
                   <div className="mb-4">
                     <h2 className="text-2xl font-bold">Input Example</h2>
-                    <p className="text-muted-foreground">Enter a value in the textbox below.</p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-3">
