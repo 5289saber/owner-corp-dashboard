@@ -129,11 +129,6 @@ export default function AccountPage() {
             <div className="grid grid-cols-1 grid-rows-9">
 
               <div className="row-span-1 row-start-1 row-end-2">
-
-                <div className="mb-4">
-                  <h2 className="text-2xl font-bold">Input Example</h2>
-                </div>
-
                 <form onSubmit={handleSubmit} className="space-y-3">
                   <div>
                     <Label htmlFor="textInput">Enter value</Label>
