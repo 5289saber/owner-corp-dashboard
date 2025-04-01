@@ -60,7 +60,7 @@ export default function AccountPage() {
           </div>
           <div className="col-span-3 col-start-2 col-end-5 row-span-1 row-start-1">
               <h1>STRATA</h1>
-              <h2>User: {process.env.NEXT_PUBLIC_USERNAME}</h2>
+              <h2>USER: {process.env.NEXT_PUBLIC_USERNAME}</h2>
           </div>
           <div className="col-span-1 col-start-5 row-span-1 row-start-1 row-end-2 place-items-center items-baseline place-content-center justify-center justify-self-center">
             <a
