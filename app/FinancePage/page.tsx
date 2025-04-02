@@ -2,9 +2,48 @@
 
 import type React from "react"
 import Image from "next/image";
+import {useEffect, useState} from 'react';
+import { request } from "http";
 
 
 export default function NoticePage() {
+  
+  type FinanceData = {
+    transactionDate: number;
+    description: string;
+    category: string;
+    debit: number;
+    credit: number;
+    id: number;
+  };
+
+  const [financeData, setFinanceData] = useState<FinanceData[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/transactions');
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Error fetching data');
+        }
+        
+        const data = await response.json();
+        setFinanceData(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error');
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchData();
+  }, []);
+
+
   return (
     <div className="grid grid-rows-7 grid-cols-5 gap-4 grid-rows-[repeat(2,min-content)_1fr] mt-6">
       <div className="col-span-1 col-start-1 col-end-2 row-span-1 row-start-1 row-end-2 place-content-center justify-center justify-self-center">
@@ -110,25 +149,35 @@ export default function NoticePage() {
         <h3>Past Payments</h3>
         <a
           className="row-span-1 row-start-4 row-end-5 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
-          href="/.."
         >
           <h6>$1,080 Due 01/2/2025</h6>
-          <h4>Reference: P9CxuKAlqqhCcCBJ</h4>
+          <h4>Reference: 1</h4>
         </a>
         <a
           className="row-span-1 row-start-5 row-end-6 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
-          href="/.."
         >
           <h6>$1,080 Due 14/2/2025</h6>
-          <h4>Reference: T2WbSMr1Y7oSgfok</h4>
+          <h4>Reference: 2</h4>
         </a>
         <a
           className="row-span-1 row-start-6 row-end-7 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
           href="/.."
         >
           <h6>$1,080 Due 01/3/2025</h6>
-          <h4>Reference: LCxbv8uVNcipbb9A</h4>
+          <h4>Reference: 3</h4>
         </a>
+        <div>
+          {financeData.map(FinanceData => (
+            <div>
+              <h4>Transaction Number {FinanceData.id} ({FinanceData.transactionDate})</h4>
+              Paid through:
+              <h5>Debit: ${FinanceData.debit ?? 0}</h5>
+              <h5>Credit: ${FinanceData.credit ?? 0}</h5>
+              <h5>Transaction type: {FinanceData.category}</h5>
+              <h5>Description: {FinanceData.description}</h5> 
+            </div>
+          ))}      
+        </div>
       </div>
     </div>
   );
