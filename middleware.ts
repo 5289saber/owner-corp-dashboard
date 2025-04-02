@@ -19,25 +19,20 @@ export async function middleware(request: NextRequest) {
     
     let apiData;
     
-    if (cachedResponse && now - cachedResponse.timestamp < CACHE_TTL) {
-      console.log('Using cached API data');
-      apiData = cachedResponse.data;
-    } else {
-      console.log('Fetching fresh API data');
-      // Fetch data from the API
-      const apiResponse = await fetch(apiUrl, {
-        next: { revalidate: 60 }, // Optional: Use Next.js cache
-      });
-      
-      if (!apiResponse.ok) {
-        throw new Error(`API responded with status: ${apiResponse.status}`);
-      }
-      
-      apiData = await apiResponse.json();
-      
-      // Cache the response
-      API_CACHE.set(apiUrl, { data: apiData, timestamp: now });
+    console.log('Fetching fresh API data');
+    // Fetch data from the API
+    const apiResponse = await fetch(apiUrl, {
+      next: { revalidate: 60 }, // Optional: Use Next.js cache
+    });
+    
+    if (!apiResponse.ok) {
+      throw new Error(`API responded with status: ${apiResponse.status}`);
     }
+    
+    apiData = await apiResponse.json();
+    
+    // Cache the response
+    API_CACHE.set(apiUrl, { data: apiData, timestamp: now });
     
     // Get the original response
     const response = NextResponse.next();
