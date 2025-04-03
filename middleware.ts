@@ -39,7 +39,7 @@ export async function middleware(request: NextRequest) {
     
     // Add the API data to a custom header (as a string)
     // Note: Headers can only contain strings, so we need to stringify the data
-    response.headers.set('x-api-data', JSON.stringify(apiData));
+    response.headers.set('x-api-data', encodeURIComponent(JSON.stringify(apiData)));
     
     return response;
   } catch (error) {
