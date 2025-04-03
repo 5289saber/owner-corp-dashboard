@@ -22,11 +22,14 @@ export async function GET() {
   }
   
   try {
-    const apiData = JSON.parse(apiDataHeader);
+    // Decode the URL-encoded data before parsing
+    const decodedData = decodeURIComponent(apiDataHeader);
+    const apiData = JSON.parse(decodedData);
     return NextResponse.json(apiData);
   } catch (error) {
+    console.error('JSON parsing error:', error);
     return NextResponse.json(
-      { error: 'Error parsing API data' },
+      { error: 'Error parsing API data', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
