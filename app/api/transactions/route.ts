@@ -1,36 +1,57 @@
-import { headers } from 'next/headers';
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server"
+
+export const runtime = "edge"
+
+// Define cache constants
+const CACHE_TTL = 60 * 1000 // 1 minute in milliseconds
+const API_CACHE = new Map()
 
 export async function GET() {
-  const headersList = headers();
-  const apiDataHeader = (await headersList).get('x-api-data');
-  const apiError = (await headersList).get('x-api-error') === 'true';
-  const apiErrorMessage = (await headersList).get('x-api-error-message');
-  
-  if (apiError) {
-    return NextResponse.json(
-      { error: apiErrorMessage || 'Error fetching API data' },
-      { status: 500 }
-    );
-  }
-  
-  if (!apiDataHeader) {
-    return NextResponse.json(
-      { error: 'No API data available' },
-      { status: 404 }
-    );
-  }
-  
   try {
-    // Decode the URL-encoded data before parsing
-    const decodedData = decodeURIComponent(apiDataHeader);
-    const apiData = JSON.parse(decodedData);
-    return NextResponse.json(apiData);
+    console.log("API route handler executing")
+
+    // Example API URL - replace with your desired public API
+    const apiUrl = "https://api.sampleapis.com/fakebank/accounts"
+
+    // Check if we have a valid cached response
+    const now = Date.now()
+    const cachedResponse = API_CACHE.get(apiUrl)
+
+    let apiData
+
+    if (cachedResponse && now - cachedResponse.timestamp < CACHE_TTL) {
+      console.log("Using cached API data")
+      apiData = cachedResponse.data
+    } else {
+      console.log("Fetching fresh API data")
+      // Fetch data from the API
+      const apiResponse = await fetch(apiUrl)
+
+      if (!apiResponse.ok) {
+        console.log("API is not fine - dont want to connect")
+        throw new Error(`API responded with status: ${apiResponse.status}`)
+      }
+
+      apiData = await apiResponse.json()
+
+      // Cache the response
+      API_CACHE.set(apiUrl, { data: apiData, timestamp: now })
+    }
+
+    // Limit the number of records to reduce size
+    const limitedData = apiData.slice(0, 10) // Only take first 10 records
+
+    // Return the data directly as JSON
+    return NextResponse.json(limitedData)
   } catch (error) {
-    console.error('JSON parsing error:', error);
+    console.error("Error in API route:", error)
+
     return NextResponse.json(
-      { error: 'Error parsing API data', details: error instanceof Error ? error.message : 'Unknown error' },
-      { status: 500 }
-    );
+      {
+        error: "Error fetching API data",
+        message: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 },
+    )
   }
 }
