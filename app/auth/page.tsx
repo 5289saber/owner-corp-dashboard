@@ -76,8 +76,7 @@ export default function AuthPage() {
           </form>
         </CardContent>
         <CardFooter className="text-sm text-muted-foreground">
-          This is a simple authentication gate. In a real application, you would implement more secure authentication
-          methods.
+          Testing
         </CardFooter>
       </Card>
     </div>
