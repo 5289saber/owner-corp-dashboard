@@ -1,5 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 
+export const runtime = "edge"
+
 export async function GET(request: NextRequest) {
   // Get the URL from the query parameter
   const searchParams = request.nextUrl.searchParams
