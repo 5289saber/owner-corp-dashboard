@@ -97,7 +97,7 @@ export default function NoticePage() {
         <a
             // committee button
             className="row-span-1 row-start-4 row-end-5 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-full sm:w-auto md:w-[windowWidth/5]"
-            href="https://classic.austlii.edu.au/au/legis/nsw/consol_act/ssma2015242/"
+            href="/api/redirect?url=https://classic.austlii.edu.au/au/legis/nsw/consol_act/ssma2015242/"
             target="_blank"
             rel="noopener noreferrer"
           >  
