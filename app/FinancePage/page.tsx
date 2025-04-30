@@ -4,23 +4,24 @@ import type React from "react"
 import Image from "next/image";
 import {useEffect, useState} from 'react';
 import { request } from "http";
+import { StringToBoolean } from "class-variance-authority/types";
+
 
 
 export default function NoticePage() {
   
   type FinanceData = {
-    transactionDate: number;
-    description: string;
-    category: string;
-    debit: number;
-    credit: number;
     id: number;
+    amount: number;
+    date: string;
+    refNum: String;
   };
 
   const [financeData, setFinanceData] = useState<FinanceData[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -125,59 +126,22 @@ export default function NoticePage() {
       <div className="row-span-7 row-start-2 col-span-4 col-start-2 place-items-start space-y-5">
         <h2>FINANCES</h2>
         <h3>Upcoming</h3>
-        <a
-          className="row-span-1 row-start-1 row-end-2 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
-        >
-          <h4>$1,080</h4>
-          <h4>Due 01/4/2025</h4>
-          <h4>Reference: --</h4>
-        </a>
-        <a
-          className="row-span-1 row-start-2 row-end-3 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
-        >
-          <h4>$1,080</h4>
-          <h4>Due 15/4/2025</h4>
-          <h4>Reference: --</h4>
-        </a>
-        <a
-          className="row-span-1 row-start-3 row-end-4 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
-        >
-          <h4>$1,080</h4>
-          <h4>Due 01/5/2025</h4>
-          <h4>Reference: --</h4>
-        </a>
+        {financeData.map(FinanceData => (
+          <div className="row-span-1 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-15 px-4 sm:px-5 w-[70vw]">
+            <h4>${FinanceData.amount ?? 0}</h4>
+            <h4>Due {FinanceData.date ?? 0}</h4>
+            <h4>reference: {FinanceData.refNum}</h4>
+          </div>
+        ))}
+
         <h3>Past Payments</h3>
-        <a
-          className="row-span-1 row-start-4 row-end-5 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
-        >
-          <h6>$1,080 Due 01/2/2025</h6>
-          <h4>Reference: 1</h4>
-        </a>
-        <a
-          className="row-span-1 row-start-5 row-end-6 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
-        >
-          <h6>$1,080 Due 14/2/2025</h6>
-          <h4>Reference: 2</h4>
-        </a>
-        <a
-          className="row-span-1 row-start-6 row-end-7 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-20 px-4 sm:px-5 w-[70vw]"
-          href="/.."
-        >
-          <h6>$1,080 Due 01/3/2025</h6>
-          <h4>Reference: 3</h4>
-        </a>
-        <div>
-          {financeData.map(FinanceData => (
-            <div>
-              <h4>Transaction Number {FinanceData.id} ({FinanceData.transactionDate})</h4>
-              Paid through:
-              <h5>Debit: ${FinanceData.debit ?? 0}</h5>
-              <h5>Credit: ${FinanceData.credit ?? 0}</h5>
-              <h5>Transaction type: {FinanceData.category}</h5>
-              <h5>Description: {FinanceData.description}</h5> 
-            </div>
-          ))}      
-        </div>
+        {financeData.map(FinanceData => (
+          <div className="row-span-1 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-15 px-4 sm:px-5 w-[70vw]">
+            <h6>${FinanceData.amount ?? 0}</h6>
+            <h6>Due {FinanceData.date ?? 0}</h6>
+            <h6>reference: {FinanceData.refNum}</h6>
+          </div>
+        ))}
       </div>
     </div>
   );

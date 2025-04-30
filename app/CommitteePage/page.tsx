@@ -2,9 +2,44 @@
 
 import type React from "react"
 import Image from "next/image";
+import {useEffect, useState} from 'react';
 
 
 export default function NoticePage() {
+    
+  type CommitteeData = {
+    id: number;
+    name: string;
+    description: string;
+    email: String;
+  };
+
+  const [committeeData, setCommitteeData] = useState<CommitteeData[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/committee');
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Error fetching data');
+        }
+        
+        const data = await response.json();
+        setCommitteeData(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error');
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchData();
+  }, []);
 
   return (
     <div className="grid grid-rows-7 grid-cols-5 gap-4 grid-rows-[repeat(2,min-content)_1fr] mt-6">
@@ -86,41 +121,14 @@ export default function NoticePage() {
 
       <div className="row-span-7 row-start-2 col-span-4 col-start-2 place-items-start space-y-5">
         <h2>COMMITTEE MEMBERS</h2>
-        <div className="grid grid-cols-1 grid-rows-4 space-y-5">
-          <a
-            className="row-span-1 row-start-1 row-end-2 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >
-            <h4>CHAIRPERSON</h4>
-            <h4>   </h4>
-            <h5>
-              Hi im the chairperson
-            </h5>
+        {committeeData.map(CommitteeData => (
+          <div className="row-span-1 row-start-1 row-end-2 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]">
+            <h4>{CommitteeData.name}</h4>
+            <h5>{CommitteeData.description}</h5>
             <h5>Contact Information:</h5>
-            <h5>chairperson@hotmail.yahoo</h5>
-          </a>
-          <a
-            className="row-span-1 row-start-2 row-end-3 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >         
-            <h4>TREASURER</h4>
-            <h4>   </h4>
-            <h5>
-              Hi im the treasurer
-            </h5>
-            <h5>Contact Information:</h5>
-            <h5>treasurer@hotmail.yahoo</h5>
-          </a>
-          <a
-            className="row-span-1 row-start-3 row-end-4 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]"
-          >         
-            <h4>SECRETARY</h4>
-            <h4>   </h4>
-            <h5>
-              Hi im the secretary
-            </h5>
-            <h5>Contact Information:</h5>
-            <h5>secretary@hotmail.yahoo</h5>
-          </a>
-        </div>
+            <h5>email: {CommitteeData.email}</h5>
+          </div>
+        ))}
       </div>
     </div>
   );

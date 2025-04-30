@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+
 // Cache for API responses to avoid repeated fetches
 const API_CACHE = new Map<string, { data: any; timestamp: number }>();
 const CACHE_TTL = 60 * 1000; // Cache time-to-live: 60 seconds

@@ -1,10 +1,19 @@
 import { NextResponse } from "next/server"
+import { neon } from "@neondatabase/serverless";
 
 export const runtime = "edge"
 
+export async function GET() {
+  const sql = neon(`${process.env.DATABASE_URL}`);
+  const data = await sql`SELECT * FROM payments;`;
+  return NextResponse.json(data);
+}
+
+/*
 // Define cache constants
 const CACHE_TTL = 60 * 1000 // 1 minute in milliseconds
 const API_CACHE = new Map()
+
 
 export async function GET() {
   try {
@@ -55,3 +64,4 @@ export async function GET() {
     )
   }
 }
+*/
