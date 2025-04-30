@@ -10,5 +10,14 @@
       "path": "/api/daily-task",
       "schedule": "0 0 * * *"
     }
+  ],
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.7.3",
+      "excludeFiles": "{.next,*.cache,node_modules,public,app}/**"
+    }
+  },
+  "routes": [
+    { "src": "/testing",  "dest": "/api/index.php" }
   ]
 }
