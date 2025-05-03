@@ -3,7 +3,6 @@
 import type React from "react"
 import Image from "next/image";
 
-
 export default function Home() {
 
   return (
@@ -27,8 +26,9 @@ export default function Home() {
           className="border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-[110px] px-4 sm:px-5 w-full sm:w-auto md:w-[110px]"
           href="/testing"
         >
+        <h4>Admin</h4>
         <Image
-              src="/home.png"
+              src="/user.png"
               alt="Home icon"
               width={150}
               height={150}
