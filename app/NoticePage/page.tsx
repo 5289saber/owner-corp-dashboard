@@ -6,6 +6,29 @@ import {useEffect, useState} from 'react';
 
 export default function NoticePage() {
 
+  const [formData, setFormData] = useState({ title: '', body: '' });
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const res = await fetch('/api/submitNotice', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      setStatus('Submitted successfully!');
+      setFormData({ title: '', body: '' });
+    } else {
+      setStatus('Failed to submit.');
+    }
+  };
+
   type NoticeData = {
         id: number;
         title: string;
@@ -118,6 +141,29 @@ export default function NoticePage() {
       </div>
 
       <div className="row-span-7 row-start-2 col-span-4 col-start-2 place-items-start space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            placeholder="Title"
+            className="border p-2 w-full"
+            required
+          />
+          <textarea
+            name="body"
+            value={formData.body}
+            onChange={handleChange}
+            placeholder="Body"
+            rows={6}
+            className="border p-2 w-full"
+            required
+          />
+          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+            Submit
+          </button>
+          {status && <p>{status}</p>}
+        </form>
         <h2>NOTICES</h2>
         {noticeData.map(NoticeData => (
           <div className="row-span-1 row-start-1 row-end-2 col-start-1 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base sm:h-70 px-4 sm:px-5 w-[76vw]">
