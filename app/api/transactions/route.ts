@@ -5,7 +5,8 @@ export const runtime = "edge"
 
 export async function GET() {
   const sql = neon(`${process.env.DATABASE_URL}`);
-  const data = await sql`SELECT * FROM payments;`;
+  //const data = await sql`SELECT * FROM payments;`;
+  const data = await sql`SELECT payments.id, payments.amount, payments.date, payments."refNum" FROM payments INNER JOIN users ON payments."userID" = users.id WHERE users.username LIKE '%nick%'`;
   return NextResponse.json(data);
 }
 

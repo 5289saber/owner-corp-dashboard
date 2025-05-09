@@ -3,13 +3,15 @@
 import type React from "react"
 import Image from "next/image";
 import {useEffect, useState} from 'react';
-import { request } from "http";
-import { StringToBoolean } from "class-variance-authority/types";
-
-
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { AlertCircle, Loader2 } from "lucide-react"
+import { queryPaymentsByUsername, type FinanceData } from "../actions/queryPayments"
 
 export default function NoticePage() {
-  
+
   type FinanceData = {
     id: number;
     amount: number;
@@ -20,12 +22,24 @@ export default function NoticePage() {
   const [financeData, setFinanceData] = useState<FinanceData[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  
+  const [username, setUsername] = useState("")
+  const [hasSearched, setHasSearched] = useState(false)
+  const [formData, setFormData] = useState({ username: '' });
 
-  useEffect(() => {
-    async function fetchData() {
+  var queryUsername = 'nick'; // Replace with your actual username variable
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+  async function fetchData() {
       try {
-        const response = await fetch('/api/transactions');
+        // Use the new API endpoint with the username parameter
+        // Replace 'currentUsername' with the actual username variable or value
+        const queryUsername = formData.username.trim();
+        const response = await fetch(`/api/userPayments?username=${encodeURIComponent(queryUsername)}`);
+        //const response = await fetch(`/api/userPayments?username=john`);
+        //const response = await fetch('/api/transactions');
         
         if (!response.ok) {
           const errorData = await response.json();
@@ -33,16 +47,104 @@ export default function NoticePage() {
         }
         
         const data = await response.json();
-        setFinanceData(data);
+        setFinanceData(data.data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);
       }
-    }
+  }
+
+  /*
+  useEffect(() => {
+    
     
     fetchData();
   }, []);
+    */
+  
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("button pressed")
+    
+    /*
+    if (!username.trim()) {
+      setError("Please enter a username")
+      return
+    }
+    */
+    setLoading(true)
+    setError("")
+    
+
+    try {
+      queryUsername = username
+      fetchData();
+      //const result = await queryPaymentsByUsername(username)
+      /*
+      if (result.success && result.data) {
+        setFinanceData(result.data)
+      } else {
+        setError(result.error || "Failed to fetch payment data")
+        setFinanceData([])
+      }
+        */
+    } catch (err) {
+      console.error("Error querying payments:", err)
+      setError("An unexpected error occurred")
+      setFinanceData([])
+    } finally {
+      setLoading(false)
+      setHasSearched(true)
+    }
+    //window.location.reload();
+  }
+
+          
+        
+
+  /*              
+        
+        {loading && (
+          <div className="text-center py-4">
+            <p>Loading payment data...</p>
+          </div>
+        )}
+        
+        {/* Render finance data only if it's an array and not loading *//*}
+        {!loading && Array.isArray(financeData) && financeData.length > 0 ? (
+          <div className="space-y-2">
+            {financeData.map((item, index) => (
+              <div 
+                key={item.id || index} 
+                className="row-span-1 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-15 px-4 sm:px-5 w-[70vw]"
+              >
+                <h6>${item.amount ?? 0}</h6>
+                <h6>Due {item.date ?? 'N/A'}</h6>
+                <h6>reference: {item.refNum ?? 'N/A'}</h6>
+              </div>
+            ))}
+          </div>
+        ) : (
+          // Show "no data" message only if not loading and there's no error
+          !loading && !error && (
+            <div className="text-center py-4 text-gray-500">
+              No payment records found.
+            </div>
+          )
+        )}
+        
+        {/* Debug information (remove in production) *//*}
+        <div className="mt-8 p-4 bg-gray-100 rounded text-xs">
+          <p>Debug Info:</p>
+          <p>financeData type: {typeof financeData}</p>
+          <p>Is array: {Array.isArray(financeData) ? 'Yes' : 'No'}</p>
+          <p>Length: {Array.isArray(financeData) ? financeData.length : 'N/A'}</p>
+        </div>
+
+*/
+    
+
 
 
   return (
@@ -125,6 +227,29 @@ export default function NoticePage() {
 
       <div className="row-span-7 row-start-2 col-span-4 col-start-2 place-items-start space-y-5">
         <h2>FINANCES</h2>
+        <h2>User selection: (input nick or john)</h2>
+
+         <form onSubmit={handleSearch} className="space-y-4">
+          <input
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Input username"
+            className="border p-2 w-full"
+            required
+          />
+          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+            Submit
+          </button>
+        </form>
+      
+        {/* Show error message if there is one */}
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            <p className="font-bold">Error:</p>
+            <p>{error}</p>
+          </div>
+        )}
         <h3>Upcoming</h3>
         {financeData.map(FinanceData => (
           <div className="row-span-1 space-x-10 border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex hover:bg-[#f2f2f2] dark:hover:bg-[#00ff00] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-15 px-4 sm:px-5 w-[70vw]">

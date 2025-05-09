@@ -25,8 +25,9 @@ export async function GET(req: NextRequest) {
       */
 
     const data = await pool.query(
-      `SELECT users.id, users.username, users.password 
-        FROM users
+      `SELECT payments.id, payments.amount, payments.date, payments."refNum" 
+        FROM payments 
+        INNER JOIN users ON payments."userID" = users.id 
         WHERE users.username LIKE $1`,
       [`%${username}%`]
     );
@@ -34,8 +35,9 @@ export async function GET(req: NextRequest) {
     const formattedData = Array.isArray(data.rows) 
       ? data.rows.map(row => ({
           id: Number(row.id),
-          username: String(row.username),
-          password: String(row.password)
+          amount: Number(row.amount),
+          date: String(row.date),
+          refNum: String(row.refNum)
         }))
       : [];
     console.log(formattedData)
