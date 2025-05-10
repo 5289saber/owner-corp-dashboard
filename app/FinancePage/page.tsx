@@ -10,7 +10,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle, Loader2 } from "lucide-react"
 import { queryPaymentsByUsername, type FinanceData } from "../actions/queryPayments"
 
-export default function NoticePage() {
+export default function FinancePage() {
 
   type FinanceData = {
     id: number;
@@ -55,24 +55,10 @@ export default function NoticePage() {
       }
   }
 
-  /*
-  useEffect(() => {
-    
-    
-    fetchData();
-  }, []);
-    */
-  
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("button pressed")
-    
-    /*
-    if (!username.trim()) {
-      setError("Please enter a username")
-      return
-    }
-    */
+
     setLoading(true)
     setError("")
     
@@ -80,15 +66,7 @@ export default function NoticePage() {
     try {
       queryUsername = username
       fetchData();
-      //const result = await queryPaymentsByUsername(username)
-      /*
-      if (result.success && result.data) {
-        setFinanceData(result.data)
-      } else {
-        setError(result.error || "Failed to fetch payment data")
-        setFinanceData([])
-      }
-        */
+
     } catch (err) {
       console.error("Error querying payments:", err)
       setError("An unexpected error occurred")
@@ -101,7 +79,22 @@ export default function NoticePage() {
   }
 
           
-        
+              //const result = await queryPaymentsByUsername(username)
+      /*
+      if (result.success && result.data) {
+        setFinanceData(result.data)
+      } else {
+        setError(result.error || "Failed to fetch payment data")
+        setFinanceData([])
+      }
+        */
+           
+    /*
+    if (!username.trim()) {
+      setError("Please enter a username")
+      return
+    }
+    */
 
   /*              
         
